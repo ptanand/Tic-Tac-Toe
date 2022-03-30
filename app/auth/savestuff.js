@@ -3,7 +3,7 @@
 const authApi = require('./api.js')
 const getFormFields = require('../../lib/get-form-fields.js')
 const linkUi = require('./ui.js')
-const { store } = require('../store.js')
+const store = require('../store.js')
 
 const onSignup = function (event) {
   event.preventDefault()
@@ -42,85 +42,90 @@ const onSignOut = function () {
     .then(() => linkUi.onSignOutSuccess())
     .catch(() => linkUi.onSignOutFailure())
 }
-//* *************************************************************** */
+//* **********************End Sign up******************//
 
 const boxes = Array.from(document.getElementsByClassName('box'))
-const newGame = document.getElementById('new-game')
-
-const startPlay = document.getElementById('start-game')
 
 const theWinner = document.getElementById('the-winner')
+
 const spaces = [null, null, null, null, null, null, null, null, null]
+
 const playerO = 'O'
 const playerX = 'X'
+
 let currentPlayer = playerX
-
+// To Start Game but need to end with log out
 const startGame = () => {
-  // if (store.user) {
-  boxes.forEach((box, index) => {
-    box.addEventListener('click', boxClicked)
-  })
+  console.log(store)
+  if (store.user) {
+    boxes.forEach((box, index) => {
+      box.addEventListener('click', boxClicked)
+    })
+  }
 }
-// }
-
+//* **************************** Winner ********************//
 function boxClicked (e) {
   const id = e.target.id
+  if (!store.user) return
   if (!spaces[id]) {
     spaces[id] = currentPlayer
     e.target.innerText = currentPlayer
     if (winner(currentPlayer)) {
-      theWinner.innerHTML = `${currentPlayer} wins!!`
+      theWinner.innerHTML = `Player ${currentPlayer} is the *Champ*.`
       return
+    }
+    if (!winner(currentPlayer)) {
+      theWinner.innerHTML = 'Hmmm! There is a Tie!'
     }
     currentPlayer = currentPlayer === playerX ? playerO : playerX
   }
 }
-
+// ************ conditions to win the game **************//
 const winner = (player) => {
-  //  diagonal
   if (spaces[0] === player) {
     if (spaces[1] === player && spaces[2] === player) {
-      console.log(`${player} wins up top`)
+      // console.log(`${player} `)
       return true
     }
     if (spaces[3] === player && spaces[6] === player) {
-      console.log(`${player} wins on the left`)
+      // console.log(`${player} `)
       return true
     }
     if (spaces[4] === player && spaces[8] === player) {
-      console.log(`${player} wins on the diagonal`)
+      // console.log(`${player} `)
       return true
     }
   }
-  //  across
+
   if (spaces[8] === player) {
     if (spaces[2] === player && spaces[5] === player) {
-      console.log(`${player} wins on the right`)
+      // console.log(`${player}`)
       return true
     }
     if (spaces[7] === player && spaces[6] === player) {
-      console.log(`${player} wins on the bottom`)
+      // console.log(`${player}`)
       return true
     }
   }
-  // middle horizontal
+
   if (spaces[4] === player) {
     if (spaces[3] === player && spaces[5] === player) {
-      console.log(`${player} wins on the middle horizontal`)
+      // console.log(`${player}`)
       return true
     }
     if (spaces[1] === player && spaces[7] === player) {
-      console.log(`${player} wins on the middle vertical`)
+      // console.log(`${player} `)
       return true
     }
     if (spaces[2] === player && spaces[6] === player) {
-      console.log(`${player} wins on the diagonal`)
+      // console.log(`${player} `)
       return true
     }
   }
 }
+// *********for a new game to clear spaces **********/
 
-newGame.addEventListener('click', () => {
+const onNewGame = () => {
   spaces.forEach((space, index) => {
     spaces[index] = null
   })
@@ -130,12 +135,11 @@ newGame.addEventListener('click', () => {
   theWinner.innerHTML = 'Good Luck!'
 
   currentPlayer = playerX
-})
-
-// startGame()
-startPlay.addEventListener('click', () => {
+}
+// ******************  startGame  *******************/
+const onStartPlay = () => {
   startGame()
-})
+}
 
 module.exports = {
   onSignup,
@@ -143,5 +147,7 @@ module.exports = {
   onSignOut,
   boxClicked,
   winner,
-  startGame
+  startGame,
+  onNewGame,
+  onStartPlay
 }
