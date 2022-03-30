@@ -1,1 +1,151 @@
 @import '~bootstrap/scss/bootstrap';
+
+
+$sign: white;
+$fons: 150px;
+$wi: 50px;
+$hi: 100px;
+$bkg: goldenrod;
+$dis: table-cell;
+    // margin-bottom: 5x;
+
+body {
+    background: rgb(23, 2, 117);
+}
+
+input{
+    text-align: left;
+    color: solid black;
+    background-color: $sign;
+}
+#auth-display{
+    color: $sign;
+}
+#auth-display1{
+    color: $sign;
+}
+#auth-display2{
+    color: $sign;
+}
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 24px;
+    font-style: italic;
+    font-weight: bolder;  
+    text-align: center;
+    text-decoration: solid;
+    color: $bkg;
+    
+}
+h2 {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    text-align: center;
+    color: $sign;
+}
+h4 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: $sign;
+    
+}
+h3 { // the display below game board
+    position: fixed;
+    left: 43%;
+    color: $sign;
+    font-family: sans-serif;
+    font-size: 18px;
+    color: white
+
+}
+
+// #new-game{
+//     position: fixed;
+//     left: 46%;
+//}
+
+// #results-display{
+//     position: fixed;
+//     top: 90%;
+//     color: white;
+//     font-family: Arial, Helvetica, sans-serif;
+//}
+// .anandi{
+
+// }
+// .hide{
+//   display: none;
+// }
+.container {
+  padding: 40px;
+  height: 100vh;
+  display: flex;
+  //grid-template-columns: 150px 150px 150px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+}
+
+#tttboard {
+ 
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 150px 150px 150px;
+  grid-template-rows: 150px 150px 150px;
+  border: 5px solid $bkg;
+  background-color:$bkg;
+}
+#tttboard >div{
+  padding: 10px;
+  background-color: purple;
+  border-radius: 5px;
+
+  display: grid;
+  place-items: center;
+
+  font-family: sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: $bkg;
+}
+
+.box {
+  height: 150px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 150px;
+  color:black;
+  
+}
+.box:hover {
+  cursor: pointer;
+}
+button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color:purple;
+  color: $bkg;
+  border-color:black;
+  font-size: 18px;
+  transition: 200ms transform;
+}
+
+button:hover {
+  cursor: pointer;
+  transform: translate(2px);
+}
+
+.xPlayer{
+  color:rgb(23, 2, 117)
+}
+.oPlayer{
+color: $bkg;
+}
+
+
+    

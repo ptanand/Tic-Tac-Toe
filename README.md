@@ -14,7 +14,7 @@ This app:
 
 
 Anand-Tic-Tac-Toe Standing out:
-This app will allow users to know what is a straight line, while playing.
+This app will allow users to know what is a straight line, while playing and save a lot of paper.
 
 Why this app?
 
