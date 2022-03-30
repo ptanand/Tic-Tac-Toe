@@ -42,12 +42,9 @@ const onSignOut = function () {
     .then(() => linkUi.onSignOutSuccess())
     .catch(() => linkUi.onSignOutFailure())
 }
-//* *************************************************************** */
+//* **********************End Sign up******************//
 
 const boxes = Array.from(document.getElementsByClassName('box'))
-// const newGame = document.getElementById('new-game')
-
-// const startPlay = document.getElementById('start-game')
 
 const theWinner = document.getElementById('the-winner')
 
@@ -57,7 +54,7 @@ const playerO = 'O'
 const playerX = 'X'
 
 let currentPlayer = playerX
-// To Start Game
+// To Start Game but need to end with log out
 const startGame = () => {
   console.log(store)
   if (store.user) {
@@ -66,9 +63,10 @@ const startGame = () => {
     })
   }
 }
-//* **************************** Winner *********************************** */
+//* **************************** Winner ********************//
 function boxClicked (e) {
   const id = e.target.id
+  if (!store.user) return
   if (!spaces[id]) {
     spaces[id] = currentPlayer
     e.target.innerText = currentPlayer
@@ -76,10 +74,13 @@ function boxClicked (e) {
       theWinner.innerHTML = `Player ${currentPlayer} is the *Champ*.`
       return
     }
+    if (!winner(currentPlayer)) {
+      theWinner.innerHTML = 'Hmmm! There is a Tie!'
+    }
     currentPlayer = currentPlayer === playerX ? playerO : playerX
   }
 }
-// ***************************** conditions to win the game *******************
+// ************ conditions to win the game **************//
 const winner = (player) => {
   if (spaces[0] === player) {
     if (spaces[1] === player && spaces[2] === player) {
@@ -122,7 +123,7 @@ const winner = (player) => {
     }
   }
 }
-// ******************for a new game to clear spaces *******************/
+// *********for a new game to clear spaces **********/
 
 const onNewGame = () => {
   spaces.forEach((space, index) => {
@@ -135,7 +136,7 @@ const onNewGame = () => {
 
   currentPlayer = playerX
 }
-// ****************************  startGame  ***************************/
+// ******************  startGame  *******************/
 const onStartPlay = () => {
   startGame()
 }

@@ -10,7 +10,6 @@ $(() => {
   $('#sign-out-button').on('click', authEvents.onSignOut)
   $('#new-game').on('click', authEvents.onNewGame)
   $('#start-game').on('click', authEvents.onStartPlay)
-  //$('#winner').on('click', authEvents.onWinner)
 })
 
 // example to change from regular javaScript to JQuery
@@ -19,19 +18,3 @@ $(() => {
 
 // startPlay.addEventListener('click', () => {startGame()})
 // const startPlay = document.getElementById('start-game')
-
-
-// const theWinner = document.getElementById('theWinner')
-//
-
-
-// const onNewGame = () => {
-//   spaces.forEach((space, index) => {
-//     spaces[index] = null
-//   })
-//   boxes.forEach((box) => {
-//     box.innerText = ''
-//   })
-//   theWinner.innerHTML = 'Good Luck!'
-
-//   currentPlayer = playerX//

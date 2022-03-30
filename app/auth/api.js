@@ -30,6 +30,10 @@ const onSignOut = function () {
   })
 }
 
+//const onCreateGames =
+
+//const onUpdateGames =
+
 module.exports = {
   onSignup,
   onSignIn1,

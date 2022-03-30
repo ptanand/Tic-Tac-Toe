@@ -24,7 +24,7 @@ const onSignIn1Failure = function () {
 const onSignOutSuccess = function () {
   console.log('pundit')
   $('#auth-display2').html('<p>User Signing out successfully</p>')
-
+  store.user = null
   $('form').trigger('reset')
 }
 

@@ -7,8 +7,7 @@ $wi: 50px;
 $hi: 100px;
 $bkg: goldenrod;
 $dis: table-cell;
-    // margin-bottom: 5x;
-
+    
 body {
     background: rgb(23, 2, 117);
 }
@@ -61,28 +60,11 @@ h3 { // the display below game board
 
 }
 
-// #new-game{
-//     position: fixed;
-//     left: 46%;
-//}
-
-// #results-display{
-//     position: fixed;
-//     top: 90%;
-//     color: white;
-//     font-family: Arial, Helvetica, sans-serif;
-//}
-// .anandi{
-
-// }
-// .hide{
-//   display: none;
-// }
 .container {
   padding: 40px;
   height: 100vh;
   display: flex;
-  //grid-template-columns: 150px 150px 150px;
+  
   justify-content: center;
   align-items: center;
   flex-direction: column;
