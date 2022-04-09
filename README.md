@@ -1,8 +1,10 @@
-Tic-Tac-Toe By Anand Maharaj
+# Tic-Tac-Toe By Anand Maharaj
 
 Title: Anand's Tic-Tac-Toe
 
-Project Description: 
+[Check this out](https://ptanand.github.io/Tic-Tac-Toe/)
+
+## Project Description: 
 This app:
 - Allows a person to register as a user.
 - Allows a User to sign in.
@@ -13,14 +15,14 @@ This app:
 - Allows the user to log out after play.
 
 
-Anand-Tic-Tac-Toe Standing out:
+## Anand-Tic-Tac-Toe Standing out:
 - This app will allow users to know what is a straight line, while playing. 
 - This app will allow users to save on paper.
 - Most of all Users can play and have fun!
 
 
 
-The Project:
+## The Project:
 Steps in building the Anand's Tic-Tac-Toe app.
 
 Step 1: what is the app going to look like and what will it do:
@@ -40,12 +42,12 @@ To play more games the user has to click the 'New Game' button and they can cont
 
 When the user is finished playing they can end by using the 'sign Out' button.
 
-Step 2: https://imgur.com/PU4RjT1
+## Step 2: ![Wireframe](https://i.imgur.com/PU4RjT1.png)
 
 In doing this project I got help from a number of people.
 I want to thank Alex Beers, Tyler Conti, Beth Pernell, Aisha Cannon and Amalia Advincula-Roye. Also Jeff Rowland and Christie Lewis.
 
-Resources: 
+## Resources: 
 
 https://git.generalassemb.ly/ptanand/game-project/blob/main/requirements.md
 
@@ -64,3 +66,6 @@ https://git.generalassemb.ly/ptanand/jquery-ajax-crud
 https://git.generalassemb.ly/ptanand/json-study
 
 https://git.generalassemb.ly/ptanand/jquery-dom-study
+
+## Contact Info:
+email: anandmaharaj577@gmail.com
