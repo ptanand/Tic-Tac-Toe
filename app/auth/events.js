@@ -19,8 +19,9 @@ const onSignup = function (event) {
     .then(() => linkUi.onSignupSuccess())
     .catch(() => linkUi.onSignupFailure())
 }
+
 // Player 1 sign in
-const onSignIn1 = function (event) {
+function onSignIn1 (event) {
   event.preventDefault()
 
   console.log('maharaj')
@@ -35,8 +36,14 @@ const onSignIn1 = function (event) {
     .catch(() => linkUi.onSignIn1Failure())
 }
 
+const onHideSignIn = document.getElementById('pl1-sign-in-form')
+
+onHideSignIn.addEventListener('submit', () => {
+  onHideSignIn.style.display = 'none'
+})
+
 const onSignOut = function () {
-  // console.log('pundit')
+  gameOver = true
   authApi
     .onSignOut()
     .then(() => linkUi.onSignOutSuccess())
@@ -50,6 +57,8 @@ const theWinner = document.getElementById('the-winner')
 
 const spaces = [null, null, null, null, null, null, null, null, null]
 
+let gameOver = false
+
 const playerO = 'O'
 const playerX = 'X'
 
@@ -58,41 +67,55 @@ let currentPlayer = playerX
 const startGame = () => {
   console.log(store)
   if (store.user) {
+    gameOver = false
+    authApi.onCreateGames()
+      .then((response) => linkUi.onGamesSuccess(response))
+
     boxes.forEach((box, index) => {
       box.addEventListener('click', boxClicked)
     })
   }
 }
+
 //* **************************** Winner ********************//
 function boxClicked (e) {
   const id = e.target.id
+  console.log(id)
   if (!store.user) return
+  if (gameOver === true) return // if game is not over continue
   if (!spaces[id]) {
+    authApi
+      .onUpdateGames(id, currentPlayer, gameOver)
+      .then((response) => linkUi.onUpdateGamesSuccess(response))
     spaces[id] = currentPlayer
     e.target.innerText = currentPlayer
     if (winner(currentPlayer)) {
       theWinner.innerHTML = `Player ${currentPlayer} is the *Champ*.`
       return
     }
-    if (!winner(currentPlayer)) {
-      theWinner.innerHTML = 'Hmmm! There is a Tie!'
-    }
+    // if (!winner(currentPlayer)) {
+
+    // }
     currentPlayer = currentPlayer === playerX ? playerO : playerX
   }
 }
+
 // ************ conditions to win the game **************//
 const winner = (player) => {
   if (spaces[0] === player) {
     if (spaces[1] === player && spaces[2] === player) {
       // console.log(`${player} `)
+      gameOver = true // end game
       return true
     }
     if (spaces[3] === player && spaces[6] === player) {
       // console.log(`${player} `)
+      gameOver = true // end game
       return true
     }
     if (spaces[4] === player && spaces[8] === player) {
       // console.log(`${player} `)
+      gameOver = true // end game
       return true
     }
   }
@@ -100,10 +123,12 @@ const winner = (player) => {
   if (spaces[8] === player) {
     if (spaces[2] === player && spaces[5] === player) {
       // console.log(`${player}`)
+      gameOver = true // end game
       return true
     }
     if (spaces[7] === player && spaces[6] === player) {
       // console.log(`${player}`)
+      gameOver = true // end game
       return true
     }
   }
@@ -111,21 +136,28 @@ const winner = (player) => {
   if (spaces[4] === player) {
     if (spaces[3] === player && spaces[5] === player) {
       // console.log(`${player}`)
+      gameOver = true // end game
       return true
     }
     if (spaces[1] === player && spaces[7] === player) {
       // console.log(`${player} `)
+      gameOver = true // end game
       return true
     }
     if (spaces[2] === player && spaces[6] === player) {
       // console.log(`${player} `)
+      gameOver = true // end game
       return true
     }
   }
+  if (!spaces.includes(null)) {
+    theWinner.innerHTML = 'Hmmm! There is a Tie!'
+  }
 }
+
 // *********for a new game to clear spaces **********/
 
-const onNewGame = () => {
+function onNewGame () {
   spaces.forEach((space, index) => {
     spaces[index] = null
   })
@@ -136,10 +168,23 @@ const onNewGame = () => {
 
   currentPlayer = playerX
 }
+//* ***********************TIE**************************** */
+// function tie () {
+//   if (spaces.forEach === currentPlayer) {
+//     theWinner.innerHTML = 'Hmmm! There is a Tie!'
+// }
 // ******************  startGame  *******************/
 const onStartPlay = () => {
   startGame()
 }
+
+const onTest = function () {
+  console.log(store)
+}
+
+// const gaveOver = function( {
+
+// })
 
 module.exports = {
   onSignup,
@@ -149,6 +194,7 @@ module.exports = {
   winner,
   startGame,
   onNewGame,
-  onStartPlay
+  onStartPlay,
+  onTest
 
 }

@@ -13,10 +13,12 @@ body {
 }
 
 input{
-    text-align: left;
+    text-align: center;
     color: solid black;
     background-color: $sign;
+    margin-left: 41%;
 }
+
 #auth-display{
     color: $sign;
 }
@@ -28,7 +30,7 @@ input{
 }
 h1 {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 24px;
+    font-size: 35px;
     font-style: italic;
     font-weight: bolder;  
     text-align: center;
@@ -42,29 +44,21 @@ h2 {
     font-weight: 800;
     text-align: center;
     color: $sign;
+    
 }
 h4 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 14px;
     font-weight: bold;
     color: $sign;
+    margin-left: 46%;
     
-}
-h3 { // the display below game board
-    position: fixed;
-    left: 43%;
-    color: $sign;
-    font-family: sans-serif;
-    font-size: 18px;
-    color: white
-
 }
 
 .container {
   padding: 40px;
-  height: 100vh;
+  //height: 100vh;
   display: flex;
-  
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -83,8 +77,7 @@ h3 { // the display below game board
 #tttboard >div{
   padding: 10px;
   background-color: purple;
-  border-radius: 5px;
-
+  border-radius: 25px;
   display: grid;
   place-items: center;
 
@@ -94,27 +87,31 @@ h3 { // the display below game board
   color: $bkg;
 }
 
-.box {
-  height: 150px;
-  width: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 150px;
-  color:black;
+//.box {
+  //height: 150px;
+  //width: 150px;
+  //display: flex;
+  //justify-content: center;
+  //align-items: center;
+  //font-size: 10px;
+  //color:black;
   
-}
+//}
 .box:hover {
   cursor: pointer;
 }
 button {
-  padding: 10px 20px;
+  padding: 5px 20px;
   border-radius: 10px;
   background-color:purple;
   color: $bkg;
   border-color:black;
-  font-size: 18px;
-  transition: 200ms transform;
+  font-size: 14px;
+  transition: 150ms transform;
+  
+}
+#signup{
+  display: inline;
 }
 
 button:hover {
@@ -122,12 +119,7 @@ button:hover {
   transform: translate(2px);
 }
 
-.xPlayer{
-  color:rgb(23, 2, 117)
-}
-.oPlayer{
-color: $bkg;
-}
+
 
 
     

@@ -10,6 +10,10 @@ $(() => {
   $('#sign-out-button').on('click', authEvents.onSignOut)
   $('#new-game').on('click', authEvents.onNewGame)
   $('#start-game').on('click', authEvents.onStartPlay)
+  $('#teststore').on('click', authEvents.onTest)
+  $('#sign-out-button').hide()
+  $('#start-game').hide()
+  $('#new-game').hide()
 })
 
 // example to change from regular javaScript to JQuery

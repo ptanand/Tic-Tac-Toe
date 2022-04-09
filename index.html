@@ -12,7 +12,7 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>*****************************</h1>
     </body>
     <!DOCTYPE html>
     <html>
@@ -36,43 +36,49 @@
                  <h2>To play you must Sign Up. </h2>
     
 
-      <h4>Sign Up here</h4>
+      
 
       <form id="sign-up-form">
-        <input name="credentials[email]" type="email" placeholder="Email">
-        <input name="credentials[password]" type="password" placeholder="Enter password">
-        <input name="credentials[password_confirmation]" type="password" placeholder="Enter password again">
-        <button type="submit">Sign Up</button>
-      
-        <section id="auth-display"></section> 
+       
+        <input id = 'signup-name' name="credentials[email]" type="email" placeholder="Enter your mail"></input>
+        <input id = 'signup-pass' name="credentials[password]" type="password" placeholder="Enter password"></input>
+        <input id = 'signup-pass2' name="credentials[password_confirmation]" type="password" placeholder="Confirm password"></input>
+        <button id='signup'type="submit">Sign Up</button>
       </form>
- 
+        <section id="auth-display"></section>
 
           <h4>Player Sign In</h4>
       <form id="pl1-sign-in-form" class="signup">
-        <input name="credentials[email]" type="email"  placeholder="Email">
+        <input name="credentials[email]" type="email"  placeholder="Enter email">
         <input name="credentials[password]" type="password" placeholder="Enter password">
         <button type="submit">Sign In</button>
-        
-        <section id="auth-display1"></section>
       </form>
-
+      <section id="auth-display1"></section>
         
-        <h4>Sign Out</h4>
+                    
       <button id="sign-out-button" class="sign-out">Sign Out</button>
         
       <section id="auth-display2"></section>
 
 
-
+      <h1>****************************************** </h1>
       <h2>WELCOME TO T.T.T. GAME BOARD</h2>
-                  <h1>Play Game!</h1> 
-             
-                  <h2><span class="show-player"></span></h2>
-    
+                
+                  <h2>Instructions to Play:</h2>
+                  <h2>*********************</h2>
+                  <h2>1. Sign up. (For new Players Only) </h2>
+                  <h2>2. Sign in. </h2>
+                  <h2>3. Click New Game.</h2>
+                  <h2>4. Click on Start Game</h2>
+                  <h2>5. To Play Again follow steps 3 and 4 </h2>
+                  <h2>6. To STOP play, click Sign Out (above left) </h2>
+                 <h2><span class="show-player"></span></h2>
+
+
           <div class="container">
+                        <h1>Play Game!</h1>
             <h1 id="the-winner">Lets see who wins!</h1>
-            <button id="start-game">Click to Start Game</button> 
+            <button id="start-game">Start Game</button> 
             <button id="new-game">New Game</button>
               
              
@@ -86,7 +92,10 @@
                   <div class="box" id="6">click me</div>
                   <div class="box" id="7">click me</div>
                   <div class="box" id="8">click me</div>
+
+            
                </div>
+       
            </div>
      </body>
 
